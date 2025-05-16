@@ -30,9 +30,7 @@ public class UserService implements UserDetailsService {
     }
 
     public List<UserResponse> searchUsers(String searchTerm) {
-        System.out.println(searchTerm);
         List<User> users = userRepository.findByUsernameOrEmailContaining(searchTerm);
-        System.out.println(users);
         return users.stream()
                 .map(this::mapToUserResponse)
                 .collect(Collectors.toList());

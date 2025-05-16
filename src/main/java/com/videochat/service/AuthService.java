@@ -69,7 +69,6 @@ public class AuthService {
 
         // Get user details
         User user = (User) authentication.getPrincipal();
-
         // Generate JWT
         String jwt = jwtService.generateToken(user);
 

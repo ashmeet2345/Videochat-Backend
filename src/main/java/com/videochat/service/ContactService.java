@@ -149,6 +149,7 @@ public class ContactService {
 
     public List<ContactResponse> getPendingContacts(User currentUser) {
         List<Contact> contacts = contactRepository.findByOwner(currentUser);
+        System.out.println(contacts);
         return contacts.stream()
                 .filter(contact -> contact.getStatus() == ContactStatus.PENDING)
                 .map(this::mapToContactResponse)
